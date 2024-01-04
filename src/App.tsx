@@ -1,20 +1,17 @@
 import { useState } from 'react'
 import './App.css'
 import SearchBar from "./components/SearchBar.tsx";
-import weatherApi from "./services/weatherApi.ts";
+import Current from "./views/Current.tsx";
 
 function App() {
-  const [weat, setCount] = useState(0);
-
-  const onCitySelect = (id: number) => {
-      weatherApi.current(id)
-  }
+  const [cityId, setCityId] = useState(0);
 
   return (
-    <div id="app">
-      <SearchBar onSubmit={onCitySelect}/>
+    <div>
+        <SearchBar onSubmit={setCityId}/>
+        {!!cityId && <Current cityId={cityId}/>}
     </div>
   )
 }
 
-export default App
+export default App;
