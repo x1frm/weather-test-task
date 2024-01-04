@@ -10,7 +10,7 @@ function App() {
 
   return (
       <>
-          <div style={{ margin: 'auto'}}>
+          <div style={{ margin: 'auto', width: '250px'}}>
               <SearchBar onSubmit={setCityId}/>
               <div>
                   <input type="radio" id="current" name="mode" value="current" checked={mode === 'current'}
