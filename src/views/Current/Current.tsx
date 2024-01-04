@@ -1,16 +1,16 @@
 import {useEffect, useState} from "react";
-import weatherApi from "../services/weatherApi.ts";
-import {Weather} from "../interfaces/weather.ts";
+import weatherApi from "../../services/weatherApi.ts";
+import {CurrentWeather} from "../../interfaces/weather.ts";
 
 type Props = {
     cityId: number
 }
 
 const Current = ({ cityId }: Props) => {
-    const [weather, setWeather] = useState<Weather | null>(null);
+    const [weather, setWeather] = useState<CurrentWeather | null>(null);
 
     useEffect(() => {
-        weatherApi.current(cityId).then(setWeather)
+        weatherApi.getCurrent(cityId).then(setWeather)
     }, [cityId]);
 
     if (!weather) {
