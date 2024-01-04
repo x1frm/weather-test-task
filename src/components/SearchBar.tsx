@@ -23,7 +23,7 @@ const SearchBar = ({ onSubmit }: Props) => {
         if (isSelectEvent) {
             submit(value);
         } else {
-            weatherApi.searchLocation(value).then(setCities);
+            value && weatherApi.searchLocation(value).then(setCities).catch(() => alert('Network error'));
         }
     }
 

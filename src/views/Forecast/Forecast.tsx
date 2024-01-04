@@ -13,7 +13,7 @@ const Forecast = ({ cityId }: Props) => {
     const [selectedIdx, setSelectedIdx] = useState(-1);
 
     useEffect(() => {
-        weatherApi.getForecast(cityId).then(setWeather);
+        weatherApi.getForecast(cityId).then(setWeather).catch(() => alert('Network error'));
         setSelectedIdx(-1);
     }, [cityId]);
 

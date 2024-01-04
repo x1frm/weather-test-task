@@ -10,7 +10,7 @@ const Current = ({ cityId }: Props) => {
     const [weather, setWeather] = useState<CurrentWeather | null>(null);
 
     useEffect(() => {
-        weatherApi.getCurrent(cityId).then(setWeather)
+        weatherApi.getCurrent(cityId).then(setWeather).catch(() => alert('Network error'));
     }, [cityId]);
 
     if (!weather) {

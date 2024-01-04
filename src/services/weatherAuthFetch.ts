@@ -7,4 +7,5 @@ export default (apiMethod: string, query = '?', init?: RequestInit) => fetch(
     if (res.ok) {
         return res.json();
     }
+    throw new Error();
 });
